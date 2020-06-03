@@ -1,10 +1,9 @@
 import React from 'react';
 
-const MyComponent = ({name}) => {
-    name =  name || "John Doe"
+const MyComponent = () => {
     return (
         <div>
-        <h4>Hola {name} </h4>
+            componente
         </div>
     );
 };
