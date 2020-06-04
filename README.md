@@ -165,7 +165,7 @@ disp→ MapDispatchToProps redux function
 
 Sin importar cómo se cree el componente, el HTML del return() debe tener una **_única tiqueta raíz_**.
 
-# Utilizar React Bootstrap
+## Utilizar React Bootstrap
 
 Instalar las librerías de bootstrap para React:  
 `npm install react-bootstrap bootstrap`
@@ -185,7 +185,7 @@ Con esto ya queda importada la librería, si quisieramos agregar un alert, por e
 ```
 Más info y componentes [aquí](https://react-bootstrap.github.io/)  
 
-# Manejo de rutas
+## Manejo de rutas
 1. Instalar React Router DOM
 `npm install --save react-router-dom`
 
@@ -224,3 +224,35 @@ La otra forma es con la etiqueta de apertura y la de cierre, y dentro especifica
 ```
 
 Esta 2da forma me parece mejor, ya que es más cómodo si queremos llamar a varios componentes y pasarle parámetros o setearle atributos.
+
+## Conectar un componente con un archivo JSON
+1. Crear un componente funcional (rsc+tab utilizando el snippet)
+Por ejemplo, el `Home` para el TP de React:
+```
+import React from 'react';
+
+const Home = () => {
+    return (
+        <div>
+            
+        </div>
+    );
+};
+
+export default Home;
+```
+
+2. Importar el JSON (`instrumentos.json` en este caso)
+`import {instrumentos} from '../assets/json/instrumentos.json'`
+Entre llaves **si o si** debe ir la palabra _instrumentos_ ya que el JSON inicia como `"instrumentos": [{`
+3. Hacemos un `map` de `instrumentos` para mostrar el instrumento, la marca y el modelo en una lista a modo de ejemplo. El código dentro del `div` sería:
+```
+<h1>Instrumentos</h1>
+<ul>
+    {instrumentos.map(product => {
+        return(
+        <li>{product.instrumento} - {product.marca} - {product.modelo}</li>
+        )
+    })}
+</ul>
+```
